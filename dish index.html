@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday Drishti ❤️</title>
+
+<style>
+:root {
+  --blood-red: #7a0000;
+  --dark-box: #1e1e1e;
+  --text-light: #f5f5f5;
+  --highlight: #ffd6d6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: var(--blood-red);
+  overflow-x: hidden;
+}
+
+/* FLOATING HEARTS */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  bottom: -50px;
+  font-size: 20px;
+  color: #ffb3b3;
+  animation: floatUp 8s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* SECTION */
+.section {
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* CARD */
+.card {
+  background: var(--dark-box);
+  padding: 45px 30px;
+  border-radius: 22px;
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.3s ease;
+}
+
+.text {
+  font-size: 1.45rem;
+  line-height: 1.9;
+  color: var(--text-light);
+}
+
+.text strong {
+  color: var(--highlight);
+}
+
+/* IMAGE */
+.photo {
+  margin-top: 30px;
+  max-width: 320px;
+  border-radius: 18px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition: all 1.4s ease;
+}
+
+/* SHOW */
+.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* FINAL */
+.final {
+  font-size: 1.65rem;
+  color: #ffbaba;
+}
+
+.signature {
+  margin-top: 25px;
+  font-size: 1.3rem;
+  color: #ffdede;
+}
+
+/* TEDDY */
+.teddy {
+  font-size: 3.2rem;
+  margin-top: 20px;
+  animation: float 3.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+/* MUSIC BUTTON */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1e1e1e;
+  color: #ffd6d6;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEARTS -->
+<div class="hearts"></div>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="c:\stuff\dishhtml\Billie Eilish - Hotline Bling (Instrumental_TikTok Version Looped) Lyrics - TikTokTunes.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+
+<section class="section">
+  <div class="card reveal">
+    <div class="text">
+      Today is the day<br>
+      that brought <strong>light and hope</strong> into my life.
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card reveal">
+    <div class="text">
+      I’m the <strong>luckiest person alive</strong><br>
+      to have an amazing, cute baby like you.
+    </div>
+    <img src="c:\stuff\dishhtml\ted.jpg" class="photo reveal">
+  </div>
+</section>
+
+<section class="section">
+  <div class="card reveal">
+    <div class="text">
+      When I’m with you,<br>
+      We had countless fight's countless memories but in the end we always stood and understood for each other.
+      everything feels right and beautiful like you.
+    </div>
+    <img src="c:\stuff\dishhtml\more cute.jpg" class="photo reveal">
+  </div>
+</section>
+
+<section class="section">
+  <div class="card reveal">
+    <div class="text">
+      I promise to make this day<br>
+      <strong>memorable — every time.</strong>
+    </div>
+    <img src="c:\stuff\dishhtml\same.jpg" class="photo reveal">
+  </div>
+</section>
+
+<section class="section">
+  <div class="card reveal">
+    <div class="text final">
+      Happy Birthday, cutie ❤️<br>
+      Love you a lot To my eyes you'r always special and my cute lil kid.
+    </div>
+    <img src="c:\stuff\dishhtml\kid.jpg" class="photo reveal">
+    <div class="signature">Your’s Cherry 😘</div>
+    <div class="teddy">🧸❤️</div>
+  </div>
+</section>
+
+<script>
+/* SCROLL ANIMATION */
+const elements = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.25 });
+elements.forEach(el => observer.observe(el));
+
+/* HEART GENERATOR */
+const heartContainer = document.querySelector(".hearts");
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (6 + Math.random() * 4) + "s";
+  heartContainer.appendChild(heart);
+  setTimeout(() => heart.remove(), 9000);
+}, 500);
+
+/* MUSIC */
+const music = document.getElementById("bgMusic");
+const btn = document.querySelector(".music-btn");
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    btn.innerText = "⏸ Pause Music";
+  } else {
+    music.pause();
+    btn.innerText = "🎵 Play Music";
+  }
+}
+</script>
+
+</body>
+</html>
